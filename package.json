@@ -1,0 +1,22 @@
+{
+  "name": "ok_youporn",
+  "version": "0.0.1",
+  "description": "Because OK Google just doesn't have all the answers.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/V-Roger/OKYouporn.git"
+  },
+  "keywords": [
+    "justforfun"
+  ],
+  "author": "Virgil Roger",
+  "license": "CC-BY-NC-4.0",
+  "bugs": {
+    "url": "https://github.com/V-Roger/OKYouporn/issues"
+  },
+  "homepage": "https://github.com/V-Roger/OKYouporn#readme"
+}
