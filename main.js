@@ -3,21 +3,22 @@
 
     var triggerElement = document.querySelector('.speech-input__icon');
 
-    artyom.on(['ok *'] , true).then((i,wildcard) => {
-        let words = wildcard.split(" ");
-        let trigger = words.indexOf("y******");
-        if(trigger !== -1) {
-            words = words.splice(trigger + 1);
-            let request = words.reduce((acc, val) => acc + "+" + val, "");
-
-            window.open('https://www.youporn.com/search/?query=' + request);
-        }
-
-        artyom.fatality();
-        triggerElement.className = 'speech-input__icon';
-    }); 
-
     var listenUp = function() {
+        artyom.on(['ok *'] , true).then((i,wildcard) => {
+            let words = wildcard.split(" ");
+            let trigger = words.indexOf("y******");
+            console.log(trigger);
+            if(trigger !== -1) {
+                words = words.splice(trigger + 1);
+                let request = words.reduce((acc, val) => acc + "+" + val, "");
+
+                window.open('https://www.youporn.com/search/?query=' + request);
+            }
+
+            triggerElement.className = 'speech-input__icon';
+            artyom.fatality();
+        }); 
+
         // Start the commands !
         artyom.initialize({
             lang: "fr-FR", // GreatBritain english
