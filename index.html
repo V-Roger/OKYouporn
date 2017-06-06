@@ -4,9 +4,20 @@
 	<meta charset="UTF-8">
 	<title>OK Youporn</title>
 	<script src="node_modules/artyom.js/build-vanilla/artyom.min.js"></script>
-    <script src="main.js"></script>
+	<link rel="stylesheet" href="oky.css">
 </head>
 <body>
-	<h1>OK Youporn</h1>
+	<main>
+		<header>
+			<h1>OK Youporn</h1>
+		</header>
+		<section>
+			<div class="speech-input">
+				<img src="assets/mic_icon.svg" class="speech-input__icon" alt="Kindly ask youporn and you shall be obeyed"/>
+				<div class="loader">Awaiting speech input</div>
+			</div>
+		</section>
+	</main>
+    <script src="main.js"></script>	
 </body>
 </html>

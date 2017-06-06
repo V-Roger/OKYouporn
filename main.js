@@ -1,6 +1,8 @@
 (function () {
     'use strict';
 
+    var triggerElement = document.querySelector('.speech-input__icon');
+
     artyom.on(['ok *'] , true).then((i,wildcard) => {
         let words = wildcard.split(" ");
         let trigger = words.indexOf("y******");
@@ -10,20 +12,37 @@
 
             window.open('https://www.youporn.com/search/?query=' + request);
         }
+
+        artyom.fatality();
+        triggerElement.className = 'speech-input__icon';
     }); 
 
-    // Start the commands !
-    artyom.initialize({
-        lang: "fr-FR", // GreatBritain english
-        continuous: true, // Listen forever
-        soundex: true,// Use the soundex algorithm to increase accuracy
-        debug: false, // Show messages in the console
-        listen: true // Start to listen commands !
-    }).then(() => {
-        console.log("Artyom has been succesfully initialized");
-    }).catch((err) => {
-        console.error("Artyom couldn't be initialized: ", err);
-    });
+    var listenUp = function() {
+        // Start the commands !
+        artyom.initialize({
+            lang: "fr-FR", // GreatBritain english
+            continuous: true, // Listen forever
+            soundex: true,// Use the soundex algorithm to increase accuracy
+            debug: true, // Show messages in the console
+            listen: true // Start to listen commands !
+        }).then(() => {
+            console.log("Artyom has been succesfully initialized");
+        }).catch((err) => {
+            console.error("Artyom couldn't be initialized: ", err);
+        });  
+    };
+
+
+    /*** events hookup */
+
+    var speakUp = function(e) {
+        if(e.target.className.indexOf('active') !== -1) return;
+        e.target.className += " active";
+
+        listenUp();
+    };
+
+    triggerElement.addEventListener('click', speakUp);
 
 }) ();
 
