@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/V-Roger/OKYouporn/issues"
   },
-  "homepage": "https://github.com/V-Roger/OKYouporn#readme"
+  "homepage": "https://github.com/V-Roger/OKYouporn#readme",
+  "dependencies": {
+    "artyom.js": "^1.0.5"
+  }
 }
