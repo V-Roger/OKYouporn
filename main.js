@@ -7,7 +7,6 @@
         artyom.on(['ok *'] , true).then((i,wildcard) => {
             let words = wildcard.split(" ");
             let trigger = words.indexOf("y******");
-            console.log(trigger);
             if(trigger !== -1) {
                 words = words.splice(trigger + 1);
                 let request = words.reduce((acc, val) => acc + "+" + val, "");
@@ -30,14 +29,18 @@
             console.log("Artyom has been succesfully initialized");
         }).catch((err) => {
             console.error("Artyom couldn't be initialized: ", err);
-        });  
+        });
     };
 
 
     /*** events hookup */
 
     var speakUp = function(e) {
-        if(e.target.className.indexOf('active') !== -1) return;
+        if(e.target.className.indexOf('active') !== -1) {
+            triggerElement.className = 'speech-input__icon';
+            artyom.fatality();
+            return;
+        }
         e.target.className += " active";
 
         listenUp();
