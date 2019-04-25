@@ -1,9 +1,10 @@
 (function () {
     'use strict';
-
+    var artyom = new Artyom();
     var triggerElement = document.querySelector('.speech-input__icon');
 
     var listenUp = function() {
+
         artyom.on(['ok *'] , true).then((i,wildcard) => {
             let words = wildcard.split(" ");
             let trigger = words.indexOf("y******");
